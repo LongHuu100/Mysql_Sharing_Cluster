@@ -4,8 +4,7 @@ docker run -d --net=cluster --name=ndb1 --ip=192.168.0.3 -v /opt/mysql-cluster/m
 
 docker run -d --net=cluster --name=ndb2 --ip=192.168.0.4 -v /opt/mysql-cluster/my.cnf:/etc/my.cnf --mount type=bind,source=/opt/mysql-cluster/data,destination=/var/lib/mysql mysql/mysql-cluster ndbd
 
-
-docker run -d --net=cluster --name=mysql1 --ip=192.168.0.10 -e MYSQL_RANDOM_ROOT_PASSWORD=true --mount type=bind,source=/opt/mysql-cluster/datamm,destination=/var/lib/mysql -p 4306:3306 mysql/mysql-cluster mysqld
+docker run -d --net=cluster --name=mysql1 --ip=192.168.0.10 -e MYSQL_RANDOM_ROOT_PASSWORD=true -v /opt/mysql-cluster/my.cnf:/etc/my.cnf --mount type=bind,source=/opt/mysql-cluster/datamm,destination=/var/lib/mysql -p 4306:3306 mysql/mysql-cluster mysqld --default-authentication-plugin=mysql_native_password
 
 docker logs mysql1 2>&1 | grep PASSWORD
 docker exec -it mysql1 mysql -uroot -p

@@ -37,16 +37,21 @@ ndb_mgm> show
 Cluster Configuration
 ---------------------
 [ndbd(NDB)]	2 node(s)
+
 id=11	@172.25.0.8  (mysql-5.7.25 ndb-7.6.9, Nodegroup: 0, *)
+
 id=12	@172.25.0.7  (mysql-5.7.25 ndb-7.6.9, Nodegroup: 0)
 
 [ndb_mgmd(MGM)]	2 node(s)
+
 id=1	@172.25.0.6  (mysql-5.7.25 ndb-7.6.9)
+
 id=2	@172.25.0.3  (mysql-5.7.25 ndb-7.6.9)
 
 [mysqld(API)]	2 node(s)
+
 id=21	@172.25.0.2  (mysql-5.7.25 ndb-7.6.9)
+
 id=22	@172.25.0.4  (mysql-5.7.25 ndb-7.6.9)
 
 ndb_mgm>
-```

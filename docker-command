@@ -13,3 +13,5 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
 Finally start a container with an interactive management client to verify that the cluster is up
 docker run -it --net=cluster mysql/mysql-cluster ndb_mgm
 
+#Test Connect client
+mysql -h 127.0.0.1 --port=4306 -uroot -pMyNewPass

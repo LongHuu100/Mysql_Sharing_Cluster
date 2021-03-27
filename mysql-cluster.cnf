@@ -1,6 +1,8 @@
 [ndbd default]
 NoOfReplicas=3
-DataMemory=1536M
+MaxNoOfTables = 1600
+MaxNoOfAttributes=10000
+DataMemory=1024M
 IndexMemory=192M
 
 [ndb_mgmd]

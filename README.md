@@ -20,9 +20,9 @@ Mysql cung cấp giải pháp cluster để đáp ứng nhu cầu trên: InnoDB 
 
 - NBD Cluster dữ liệu của bảng sẽ được chia ra lưu trữ trên nhiều ndbd được quản lý bởi ndb_mngd.
 
-# Docker-compose
+# Thực hiện bằng Docker
 
-# Run Command in docker-cammand file
+# Chạy các lệnh trong fle docker-cammand và kiểm tra kết quả
 
 ```
 docker run -it --net=cluster mysql/mysql-cluster ndb_mgm

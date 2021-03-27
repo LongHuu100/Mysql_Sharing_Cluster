@@ -18,4 +18,8 @@ Finally start a container with an interactive management client to verify that t
 docker run -it --net=cluster mysql/mysql-cluster ndb_mgm
 
 #Test Connect client
+docker exec -it mysql1 mysql -uroot -pMyNewPass
+update user set `host` = '%' where user = 'root';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+#Exit
 mysql -h 127.0.0.1 --port=4306 -uroot -pMyNewPass

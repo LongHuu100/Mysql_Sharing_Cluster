@@ -1,5 +1,5 @@
 [ndbd default]
-NoOfReplicas=2
+NoOfReplicas=3
 DataMemory=1536M
 IndexMemory=192M
 

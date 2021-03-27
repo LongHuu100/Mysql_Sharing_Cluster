@@ -1,3 +1,5 @@
+docker network create cluster --subnet=192.168.0.0/16
+
 docker run -d --net=cluster --name=management1 --ip=192.168.0.2 -v /opt/mysql-cluster/mysql-cluster.cnf:/etc/mysql-cluster.cnf mysql/mysql-cluster ndb_mgmd
 
 docker run -d --net=cluster --name=ndb1 --ip=192.168.0.3 -v /opt/mysql-cluster/my.cnf:/etc/my.cnf 

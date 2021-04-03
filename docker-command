@@ -12,12 +12,10 @@ docker run -d --net=cluster --name=ndb3 --ip=192.168.0.5 -v /opt/mysql-cluster/m
 --mount type=bind,source=/opt/mysql-cluster/data,destination=/var/lib/mysql mysql/mysql-cluster ndbd
 
 docker run -d --net=cluster --name=mysql1 --ip=192.168.0.10 -e MYSQL_RANDOM_ROOT_PASSWORD=true -v /opt/mysql-cluster/my.cnf:/etc/my.cnf 
---mount type=bind,source=/opt/mysql-cluster/datamm,destination=/var/lib/mysql 
 --mount type=bind,source=/opt/mysql-cluster/backup,destination=/opt 
 -p 4306:3306 mysql/mysql-cluster mysqld --default-authentication-plugin=mysql_native_password --lower_case_table_names=1
 
 docker run -d --net=cluster --name=mysql2 --ip=192.168.0.11 -e MYSQL_RANDOM_ROOT_PASSWORD=true -v /opt/mysql-cluster/my.cnf:/etc/my.cnf 
---mount type=bind,source=/opt/mysql-cluster/datamm2,destination=/var/lib/mysql 
 --mount type=bind,source=/opt/mysql-cluster/backup,destination=/opt 
 -p 4307:3306 mysql/mysql-cluster mysqld --default-authentication-plugin=mysql_native_password --lower_case_table_names=1
 
@@ -30,6 +28,7 @@ docker run -it --net=cluster mysql/mysql-cluster ndb_mgm
 
 #Test Connect client
 docker exec -it mysql1 mysql -uroot -pMyNewPass
+use mysql;
 update user set `host` = '%' where user = 'root';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 #Exit

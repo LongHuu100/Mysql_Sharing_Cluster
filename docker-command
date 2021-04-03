@@ -8,9 +8,11 @@ docker run -d --net=cluster --name=ndb2 --ip=192.168.0.4 -v /opt/mysql-cluster/m
 
 docker run -d --net=cluster --name=ndb3 --ip=192.168.0.5 -v /opt/mysql-cluster/my.cnf:/etc/my.cnf mysql/mysql-cluster ndbd
 
-docker run -d --net=cluster --name=mysql1 --ip=192.168.0.10 -e MYSQL_RANDOM_ROOT_PASSWORD=true -v /opt/mysql-cluster/my.cnf:/etc/my.cnf \n --mount type=bind,source=/opt/mysql-cluster/backup,destination=/opt -p 4306:3306 mysql/mysql-cluster mysqld --lower_case_table_names=1
+docker run -d --net=cluster --name=mysql1 --ip=192.168.0.10 -e MYSQL_RANDOM_ROOT_PASSWORD=true -v /opt/mysql-cluster/my.cnf:/etc/my.cnf \n 
+--mount type=bind,source=/opt/mysql-cluster/backup,destination=/opt -p 4306:3306 mysql/mysql-cluster mysqld --lower_case_table_names=1
 
-docker run -d --net=cluster --name=mysql2 --ip=192.168.0.11 -e MYSQL_RANDOM_ROOT_PASSWORD=true -v /opt/mysql-cluster/my.cnf:/etc/my.cnf \n --mount type=bind,source=/opt/mysql-cluster/backup,destination=/opt -p 4307:3306 mysql/mysql-cluster mysqld --lower_case_table_names=1
+docker run -d --net=cluster --name=mysql2 --ip=192.168.0.11 -e MYSQL_RANDOM_ROOT_PASSWORD=true -v /opt/mysql-cluster/my.cnf:/etc/my.cnf \n 
+--mount type=bind,source=/opt/mysql-cluster/backup,destination=/opt -p 4307:3306 mysql/mysql-cluster mysqld --lower_case_table_names=1
 
 docker logs mysql1 2>&1 | grep PASSWORD
 docker exec -it mysql1 mysql -uroot -p

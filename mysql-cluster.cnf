@@ -2,8 +2,8 @@
 NoOfReplicas=3
 MaxNoOfTables = 1600
 MaxNoOfAttributes=10000
-DataMemory=1024M
-IndexMemory=192M
+DataMemory=512M
+IndexMemory=100M
 
 [ndb_mgmd]
 NodeId=1
